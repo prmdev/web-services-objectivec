@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConnectionDidFinishSignal.h"
 
-@interface CategoryTableViewController : UITableViewController {
-    
-    NSArray *beerArray;
+@interface CategoryTableViewController : UITableViewController <ConnectionDidFinishSignal> {
+
+    NSArray *beerList;
+    NSArray *beerCategoryList;
+    NSDictionary *beerCategoryDict;
 }
+
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
+
 
 @end

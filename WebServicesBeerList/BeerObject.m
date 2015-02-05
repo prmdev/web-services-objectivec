@@ -50,48 +50,55 @@
         self.beer_description = ds;
         self.beer_category_name = c;
         self.beer_date_added = dt;
-        [self parseABV];
-        [self parseSize];
-        [self parsePrice];
+        [self parseABV:a];
+        [self parseSize:s];
+        [self parsePrice:p];
     }
     
     return self;
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key {
-    [super setValue:value forKeyPath:key];
+    
     if ([key isEqualToString:@"beer_ABV"])
-        [self parseABV];
+        [self parseABV:value];
+    else if ([key isEqualToString:@"beer_size"])
+        [self parseSize:value];
+    else if ([key isEqualToString:@"beer_price"])
+        [self parsePrice:value];
+    [super setValue:value forKey:key];
 }
 
-- (void)parseABV {
-    NSArray *abvArray = [self.beer_ABV componentsSeparatedByString:@" "];
+- (void)parseABV:(NSString *)abvStr {
+    
+    NSArray *abvArray = [abvStr componentsSeparatedByString:@" "];
     if ([abvArray count] > 1)
         self.beer_ABV_value = [abvArray[1] floatValue];
 }
 
-- (void)parseSize {
-    self.beer_size_value = [self.beer_size floatValue];
+- (void)parseSize:(NSString *)sizeStr {
+    
+    self.beer_size_value = [sizeStr floatValue];
 }
 
-- (void)parsePrice {
+- (void)parsePrice:(NSString *)priceStr {
     
-    self.beer_price_value = [self.beer_price floatValue];
+    self.beer_price_value = [priceStr floatValue];
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:
-            @"\n========== Beer Info ==========\n"
-            "Beer Name: %@\n"
-            "Beer Loacation: %@\n"
-            "Beer ABV: %f\n"
-            "Beer Size: %f\n"
-            "Beer Price: %f\n"
-            "Beer Description: %@\n"
-            "Beer Category Name: %@\n"
+            @"\n============ Beer Info =============\n\n"
+            "Beer Name: %@\n\n"
+            "Beer Loacation: %@\n\n"
+            "Beer ABV: %@\n\n"
+            "Beer Size: %@\n\n"
+            "Beer Price: %@\n\n"
+            "Beer Description: %@\n\n"
+            "Beer Category Name: %@\n\n"
             "Beer Date Added: %@\n\n",
-            self.beer_name, self.beer_location, self.beer_ABV_value, self.beer_size_value,
-            self.beer_price_value, self.beer_description, self.beer_category_name, self.beer_date_added];
+            self.beer_name, self.beer_location, self.beer_ABV, self.beer_size,
+            self.beer_price, self.beer_description, self.beer_category_name, self.beer_date_added];
 }
 
 @end

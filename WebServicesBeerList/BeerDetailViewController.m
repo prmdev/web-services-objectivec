@@ -10,4 +10,13 @@
 
 @implementation BeerDetailViewController
 
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    self.beerDetailTextView.text = [NSString stringWithFormat:@"%@", self.beer];
+}
+
+
+
 @end

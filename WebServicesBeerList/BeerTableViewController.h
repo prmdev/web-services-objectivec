@@ -10,4 +10,7 @@
 
 @interface BeerTableViewController : UITableViewController
 
+@property (nonatomic, copy)   NSString *category;
+@property (nonatomic, strong) NSArray *beerListInCategory;
+
 @end

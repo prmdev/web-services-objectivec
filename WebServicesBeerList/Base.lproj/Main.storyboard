@@ -75,9 +75,57 @@
                     <view key="view" contentMode="scaleToFill" id="bfU-KX-dtH">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Xn-3k-okH">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Xn-3k-okH" firstAttribute="top" secondItem="Bz2-nx-aFI" secondAttribute="bottom" id="Ff2-H0-9pw">
+                                <variation key="widthClass=compact" constant="8" symbolic="YES"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="1Xn-3k-okH" secondAttribute="trailing" id="Hch-5u-0jr">
+                                <variation key="widthClass=compact" constant="20" symbolic="YES"/>
+                            </constraint>
+                            <constraint firstItem="ADl-mZ-iJJ" firstAttribute="top" secondItem="1Xn-3k-okH" secondAttribute="bottom" id="NUB-SC-N2l">
+                                <variation key="widthClass=compact" constant="8" symbolic="YES"/>
+                            </constraint>
+                            <constraint firstItem="1Xn-3k-okH" firstAttribute="leading" secondItem="bfU-KX-dtH" secondAttribute="leading" id="U26-81-eee">
+                                <variation key="widthClass=compact" constant="20" symbolic="YES"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="1Xn-3k-okH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Ff2-H0-9pw"/>
+                                <exclude reference="Hch-5u-0jr"/>
+                                <exclude reference="U26-81-eee"/>
+                                <exclude reference="NUB-SC-N2l"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="1Xn-3k-okH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Ff2-H0-9pw"/>
+                                <include reference="Hch-5u-0jr"/>
+                                <include reference="U26-81-eee"/>
+                                <include reference="NUB-SC-N2l"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Beer Details" id="RDK-6B-2be"/>
+                    <connections>
+                        <outlet property="beerDetailTextView" destination="1Xn-3k-okH" id="8I5-dz-bQD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4B-63-eXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

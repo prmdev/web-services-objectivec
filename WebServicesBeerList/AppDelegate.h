@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WebServiceConnectionDelegate.h"
-#import "WebServiceParserDelegate.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

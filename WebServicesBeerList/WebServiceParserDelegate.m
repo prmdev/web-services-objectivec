@@ -29,8 +29,8 @@
     
     if (self) {
         self.data = d;
-        verbose = YES;
-        beerArray = [NSMutableArray array];
+        beerListMutable = [NSMutableArray array];
+        verbose = NO;
     }
     
     return self;
@@ -50,11 +50,10 @@
     
     if ([elementName isEqualToString:@"Beer"]) {
         if (verbose) NSLog(@"%@", currentBeer);
-        /*[currentBeer parseNumbers];*/
-        [beerArray addObject:currentBeer];
+        [beerListMutable addObject:currentBeer];
     }
     else if ([elementName isEqualToString:@"getBeerListResult"]) {
-        self.beerList = [beerArray copy];
+        self.beerList = [NSArray arrayWithArray:beerListMutable];
         if (verbose) NSLog(@"Beer List Updated");
     }
     else if ([elementName isEqualToString:@"getBeerListResponse"]);
@@ -63,10 +62,6 @@
     else {
         [currentBeer setValue:currentElement forKey:elementName];
     }
-    /*if ([elementName isEqualToString:@"beer_name"])
-        [currentBeer setName:currentElement];
-    else if ([elementName isEqualToString:@"beer_location"])
-        [currentBeer setLocation:currentElement];*/
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {

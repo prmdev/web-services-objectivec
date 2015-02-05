@@ -32,8 +32,8 @@
                  description:(NSString *)ds
                     category:(NSString *)c
                         date:(NSString *)dt;
-- (void)parseABV;
+/*- (void)parseABV;
 - (void)parseSize;
-- (void)parsePrice;
+- (void)parsePrice;*/
 
 @end

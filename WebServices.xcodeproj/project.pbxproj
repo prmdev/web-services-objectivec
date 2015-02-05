@@ -57,6 +57,7 @@
 		428171A61A826B2D00DA4405 /* BeerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeerObject.m; sourceTree = "<group>"; };
 		428171A81A826B5D00DA4405 /* WebServiceParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceParserDelegate.h; sourceTree = "<group>"; };
 		428171A91A826B5D00DA4405 /* WebServiceParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceParserDelegate.m; sourceTree = "<group>"; };
+		42AB04371A8404AA00DFA81C /* ConnectionDidFinishSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionDidFinishSignal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +123,8 @@
 		428171741A8269E300DA4405 /* WebServicesBeerList */ = {
 			isa = PBXGroup;
 			children = (
+				428171791A8269E300DA4405 /* AppDelegate.h */,
+				4281717A1A8269E300DA4405 /* AppDelegate.m */,
 				4281717F1A8269E300DA4405 /* Main.storyboard */,
 				429312FA1A82D74A003D025F /* Models */,
 				429312F91A82D730003D025F /* ViewControllers */,
@@ -134,8 +137,6 @@
 		428171751A8269E300DA4405 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				428171791A8269E300DA4405 /* AppDelegate.h */,
-				4281717A1A8269E300DA4405 /* AppDelegate.m */,
 				428171821A8269E300DA4405 /* Images.xcassets */,
 				428171841A8269E300DA4405 /* LaunchScreen.xib */,
 				428171761A8269E300DA4405 /* Info.plist */,
@@ -147,6 +148,7 @@
 		429312F81A82D704003D025F /* WebServiceDelegates */ = {
 			isa = PBXGroup;
 			children = (
+				42AB04371A8404AA00DFA81C /* ConnectionDidFinishSignal.h */,
 				428171A21A826B1D00DA4405 /* WebServiceConnectionDelegate.h */,
 				428171A31A826B1D00DA4405 /* WebServiceConnectionDelegate.m */,
 				428171A81A826B5D00DA4405 /* WebServiceParserDelegate.h */,

@@ -11,8 +11,9 @@
 
 @interface WebServiceConnectionDelegate()
 
+@property (nonatomic, readwrite) WebServiceParserDelegate *xmlParser;
 @property (nonatomic, readwrite) NSData *responseData;
-@property (nonatomic, assign)    BOOL connectionDidFinish;
+/*@property (nonatomic, assign)    BOOL connectionDidFinish;*/
 
 @end
 
@@ -31,9 +32,9 @@
     if (self) {
         self.url = u;
         self.method = m;
-        self.connectionDidFinish = NO;
+        /*self.connectionDidFinish = NO;*/
         responseDataMutable = [NSMutableData data];
-        verbose = YES;
+        verbose = NO;
     }
     
     return self;
@@ -55,7 +56,8 @@
     [request setValue:@"application/soap+xml" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%li", [envelopeData length]] forHTTPHeaderField:@"Content-Length"];
     
-    [NSURLConnection connectionWithRequest:request delegate:self];
+    /*[NSURLConnection connectionWithRequest:request delegate:self];*/
+    NSURLConnection __unused *con = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 - (NSString *)generateEnvelope {
@@ -77,7 +79,6 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     
-    self.connectionDidFinish = NO;
     NSLog(@"WebServiceConnection failed with error: %@ %@",
           [error localizedDescription], [error.userInfo objectForKey:NSURLErrorFailingURLErrorKey]);
 }
@@ -90,17 +91,18 @@
     [responseDataMutable appendData:data];
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    
+}
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     
-    self.connectionDidFinish = YES;
-    self.responseData = [responseDataMutable copy];
+    self.responseData = [NSData dataWithData:responseDataMutable];
     if (verbose) {
         NSString *dataString = [[NSString alloc] initWithData:self.responseData encoding:NSUTF8StringEncoding];
         NSLog(@"WebServiceConnection returned data successfully.\n\n%@", dataString);
     }
-    
-    WebServiceParserDelegate *parser = [[WebServiceParserDelegate alloc] initWithData:self.responseData];
-    [parser startParsing];
+    [self.signalDelegate signalFrom:self];
 }
 
 

@@ -13,7 +13,7 @@
 @interface WebServiceParserDelegate : NSObject <NSXMLParserDelegate> {
 
     NSMutableString *currentElement;
-    NSMutableArray *beerArray;
+    NSMutableArray *beerListMutable;
     BeerObject *currentBeer;
     BOOL verbose;
 }

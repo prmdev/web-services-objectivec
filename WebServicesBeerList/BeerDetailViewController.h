@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BeerObject.h"
 
 @interface BeerDetailViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextView *beerDetailTextView;
+@property (nonatomic, strong) BeerObject *beer;
 
 @end

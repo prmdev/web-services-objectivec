@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ConnectionDidFinishSignal.h"
 
 @class WebServiceParserDelegate;
 
@@ -16,14 +17,13 @@
     BOOL verbose;
 }
 
+@property (nonatomic, weak)     id <ConnectionDidFinishSignal> signalDelegate;
 @property (nonatomic, copy)     NSString *url;
 @property (nonatomic, copy)     NSString *method;
 @property (nonatomic, readonly) NSData *responseData;
-@property (nonatomic, readonly) BOOL connectionDidFinish;
 
 - (instancetype)init;
 - (instancetype)initWithUrl:(NSString *)u method:(NSString *)m;
 - (void)establishConnection;
-- (NSString *)generateEnvelope;
 
 @end
