@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="RDh-yt-TlN">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--Beer Categories-->
+        <scene sceneID="BWK-ZC-Isu">
+            <objects>
+                <tableViewController id="aNZ-mC-53z" customClass="CategoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aCu-xe-eOk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="EQe-HR-FM1">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EQe-HR-FM1" id="odi-Tt-kBc">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="2GQ-rH-pNx" kind="show" id="b2f-5S-nTy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aNZ-mC-53z" id="HNK-ZQ-SpX"/>
+                            <outlet property="delegate" destination="aNZ-mC-53z" id="Cep-rz-eLU"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Beer Categories" id="hFT-YP-ndf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zv8-GT-IMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1127" y="388"/>
+        </scene>
+        <!--Beer List-->
+        <scene sceneID="qA2-yN-eQN">
+            <objects>
+                <tableViewController id="2GQ-rH-pNx" customClass="BeerTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="st2-bz-9gO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="CCQ-dI-pvb">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CCQ-dI-pvb" id="m8D-el-UiM">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Q3Y-xN-70b" kind="show" id="SS2-XS-28N"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2GQ-rH-pNx" id="0ro-iq-o1E"/>
+                            <outlet property="delegate" destination="2GQ-rH-pNx" id="k4v-zL-v6p"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Beer List" id="NKB-Tr-4kb"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dh-UB-s4O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891.5" y="388"/>
+        </scene>
+        <!--Beer Details-->
+        <scene sceneID="dKl-MX-zbV">
+            <objects>
+                <viewController id="Q3Y-xN-70b" customClass="BeerDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Bz2-nx-aFI"/>
+                        <viewControllerLayoutGuide type="bottom" id="ADl-mZ-iJJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bfU-KX-dtH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Beer Details" id="RDK-6B-2be"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I4B-63-eXU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2656.5" y="388"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Uc5-3Q-fnL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RDh-yt-TlN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nj4-8O-0Vi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aNZ-mC-53z" kind="relationship" relationship="rootViewController" id="LH7-mZ-bNx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTz-Hk-zUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="377" y="388"/>
+        </scene>
+    </scenes>
+</document>
